@@ -1,0 +1,11 @@
+@for (task of tasks; track task.id; let isOdd = $odd) {
+    <app-item
+    class="testClass"
+    [task]="task"
+    (deleteTaskEvent)="handleTaskDelete($event)"
+    (reminderToggleEvent)="handleReminderToggle(task)"
+>
+ {{ isOdd? "yo im odd as hell": ''}}
+</app-item>
+}
+

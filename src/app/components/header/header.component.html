@@ -1,0 +1,7 @@
+<header>
+  <h1>{{ title }}</h1>
+  <app-button class="test-class" [attr.aria-label]="buttonText" [color]="getButtonColor()" [text]="buttonText" (btnClick)="handleClick()"></app-button>
+  <!-- <app-sizer [(size)]="fontSizePx"> </app-sizer> -->
+  <!-- <p [style.fontSize.px]="fontSizePx"> Yolo look at me!</p> -->
+  {{checkRender()}}
+</header>

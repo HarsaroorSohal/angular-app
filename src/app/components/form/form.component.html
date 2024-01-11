@@ -1,0 +1,39 @@
+<form [formGroup]="registerForm" (ngSubmit)="handleSubmit()">
+  <div>Username</div>
+  <input
+    type="text"
+    name="username"
+    formControlName="username"
+    [class.invalid]="registerForm.get('username').invalid"
+  />
+  <div>Password</div>
+  <input type="text" name="password" formControlName="password" />
+  <div>Email</div>
+  <input addBackgroundColor="red" type="text" name="email" formControlName="email" />
+  <div [style.padding]="'12px 0px 12px 0px'">
+    <select formControlName="id">
+      @for (role of roles; track role['id']) {
+        <option [ngValue]="role">{{ role['role'] }}</option>
+      }
+    </select>
+  </div>
+  <div formGroupName="address" class="address-container">
+    <div>City</div>
+    <input type="text" name="city" formControlName="city" />
+    <div>State</div>
+    <input type="text" name="state" formControlName="state" />
+    <div>Country</div>
+    <input type="text" name="country" formControlName="country" />
+  </div>
+  @if (getPhones.enabled) {
+    <div formArrayName="phones">
+      @for (phone of getPhones.controls; track $index) {
+        <div>Phone Number {{ $index }}</div>
+        <input type="number" name="phone number {{ $index }}" />
+      }
+    </div>
+  }
+  <div>
+    <button [disabled]="registerForm.invalid">Submit</button>
+  </div>
+</form>

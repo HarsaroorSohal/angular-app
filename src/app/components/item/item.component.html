@@ -1,0 +1,10 @@
+<div [ngClass]="{ reminder: task.reminder }" class="task" (dblclick)="handleReminderToggle(task)">
+  <h3>
+    {{ task.text }}
+    <div (click)="handleTaskDelete(task.id)">
+      {{ 'x' }}
+    </div>
+  </h3>
+  <p>{{ task.day }}</p>
+  <a [routerLink]="['/details', task.id]"> Details </a>
+</div>
